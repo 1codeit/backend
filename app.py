@@ -25,6 +25,8 @@ def get_weather_data(api_key, city, country_code):
     # Return the weather data as a dictionary
     return {
         "description": weather["description"],
+        "city" : request.form["city"],
+        "country_code" : request.form["country_code"],
         "icon": weather["icon"],
         "temp": main["temp"],
         "pressure": main["pressure"],

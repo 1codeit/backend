@@ -1,4 +1,7 @@
+from flask import Flask, request, render_template
 import requests
+
+app = Flask(__name__)
 
 def get_weather_data(api_key, city, country_code):
     # Set up the API request URL
@@ -32,20 +35,19 @@ def get_weather_data(api_key, city, country_code):
         "wind_deg": wind["deg"]
     }
 
-# Example usage
-api_key = input("Enter your api key:")
-city = input("Enter the city: ")
-country_code = input("Enter the country code: ")
+@app.route("/")
+def home():
+    return render_template("home.html")
 
-weather_data = get_weather_data(api_key, city, country_code)
+@app.route("/get_weather", methods=["POST"])
+def get_weather():
+    api_key = "fd1a8e69e20a64b9451a45de9d857399"
+    city = request.form["city"]
+    country_code = request.form["country_code"]
 
-# Print the weather data
-print(f"Description: {weather_data['description']}")
-print(f"Icon: {weather_data['icon']}")
-print(f"Temperature: {weather_data['temp']}")
-print(f"Pressure: {weather_data['pressure']}")
-print(f"Humidity: {weather_data['humidity']}")
-print(f"Minimum temperature: {weather_data['temp_min']}")
-print(f"Maximum temperature: {weather_data['temp_max']}")
-print(f"Wind speed: {weather_data['wind_speed']}")
-print(f"Wind degree: {weather_data['wind_deg']}")
+    weather_data = get_weather_data(api_key, city, country_code)
+
+    return render_template("weather.html", weather_data=weather_data)
+
+if __name__ == "__main__":
+    app.run()

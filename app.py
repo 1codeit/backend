@@ -1,15 +1,8 @@
 from flask import Flask, request, render_template
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
-import os
 import requests
+import os
 
-credential = DefaultAzureCredential()
-client = SecretClient(
-    vault_url="https://kv-wethrer.vault.azure.net/",
-    credential= credential
-)
-secret = client.get_secret("okey")
+secret = os.environ['key']
 
 app = Flask(__name__)
 

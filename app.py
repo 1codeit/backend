@@ -47,7 +47,7 @@ def home():
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
-    api_key = secret.value
+    api_key = secret
     city = request.form["city"]
     country_code = request.form["country_code"]
 

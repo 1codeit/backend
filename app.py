@@ -1,5 +1,17 @@
 from flask import Flask, request, render_template
 import requests
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+
+keyVaultName = "kv-wethrer"
+KVUri = f"https://kv-wethrer.vault.azure.net"
+
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
+secretName = "okey"
+retrieved_secret = client.get_secret(secretName)
+
+
 
 app = Flask(__name__)
 
@@ -13,6 +25,10 @@ def get_weather_data(api_key, city, country_code):
     # Check if the request was successful
     if response.status_code != 200:
         raise Exception(f"Failed to get weather data: {response.text}")
+
+    # Check if the city was not found
+    if response.status_code != 404:
+        raise Exception(f"Failed to Find your city: {response.text}")
 
     # Parse the response JSON
     data = response.json()
@@ -37,19 +53,26 @@ def get_weather_data(api_key, city, country_code):
         "wind_deg": wind["deg"]
     }
 
+
 @app.route("/")
 def home():
     return render_template("home.html")
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
-    api_key = request.form["key"]
+    # This below line is a temporary fix for the API key if it needs to be used
+    # api_key = request.form["key"]
+    api_key = retrieved_secret.value
     city = request.form["city"]
     country_code = request.form["country_code"]
 
     weather_data = get_weather_data(api_key, city, country_code)
 
     return render_template("weather.html", weather_data=weather_data)
+
+@app.route("/404")
+def page_not_found():
+    return render_template("404.html")
 
 if __name__ == "__main__":
     app.run()

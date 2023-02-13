@@ -6,7 +6,11 @@
 
 <body>
     <h1>Get Weather</h1>
+    <p>Note if you just got your key it may take a couple hours to become active</p>
     <form action="/get_weather" method="post">
+        <label for="key">Your Openwether api key:</label>
+        <input type="text" id="key" name="key">
+        <br>
         <label for="city">City:</label>
         <input type="text" id="city" name="city">
         <br>

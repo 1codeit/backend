@@ -1,8 +1,5 @@
 from flask import Flask, request, render_template
 import requests
-import os
-
-secret = os.environ['key']
 
 app = Flask(__name__)
 
@@ -28,8 +25,8 @@ def get_weather_data(api_key, city, country_code):
     # Return the weather data as a dictionary
     return {
         "description": weather["description"],
-        "city" : request.form["city"],
-        "country_code" : request.form["country_code"],
+        "city": request.form["city"],
+        "country_code": request.form["country_code"],
         "icon": weather["icon"],
         "temp": main["temp"],
         "pressure": main["pressure"],
@@ -37,8 +34,7 @@ def get_weather_data(api_key, city, country_code):
         "temp_min": main["temp_min"],
         "temp_max": main["temp_max"],
         "wind_speed": wind["speed"],
-        "wind_deg": wind["deg"],
-        "secret": secret
+        "wind_deg": wind["deg"]
     }
 
 @app.route("/")
@@ -47,7 +43,7 @@ def home():
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
-    api_key = secret
+    api_key = request.form["key"]
     city = request.form["city"]
     country_code = request.form["country_code"]
 

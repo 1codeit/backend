@@ -1,5 +1,15 @@
 from flask import Flask, request, render_template
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+import os
 import requests
+
+credential = DefaultAzureCredential()
+client = SecretClient(
+    vault_url="https://kv-wethrer.vault.azure.net/",
+    credential= credential
+)
+secret = client.get_secret("okey")
 
 app = Flask(__name__)
 
@@ -34,7 +44,8 @@ def get_weather_data(api_key, city, country_code):
         "temp_min": main["temp_min"],
         "temp_max": main["temp_max"],
         "wind_speed": wind["speed"],
-        "wind_deg": wind["deg"]
+        "wind_deg": wind["deg"],
+        "secret": secret
     }
 
 @app.route("/")
@@ -43,7 +54,7 @@ def home():
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
-    api_key = request.form["api_key"]
+    api_key = secret.value
     city = request.form["city"]
     country_code = request.form["country_code"]
 

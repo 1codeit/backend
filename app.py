@@ -25,11 +25,6 @@ def get_weather_data(api_key, city, country_code):
     # Check if the request was successful
     if response.status_code != 200:
         raise Exception(f"Failed to get weather data: {response.text}")
-
-    # Check if the city was not found
-    if response.status_code != 404:
-        raise Exception(f"Failed to Find your city: {response.text}")
-
     # Parse the response JSON
     data = response.json()
 

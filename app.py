@@ -57,7 +57,7 @@ def home():
 def get_weather():
     # This below line is a temporary fix for the API key if it needs to be used
     # api_key = request.form["key"]
-    api_key = os.environ.get("key")
+    api_key = retrieved_secret.value
     city = request.form["city"]
     country_code = request.form["country_code"]
 

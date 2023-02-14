@@ -10,17 +10,71 @@
      <link rel="icon" type="image/png" sizes="16x16"
          href="https://serv.huskynz.online/logo/favicon_io/favicon-16x16.png">
 </head>
+<style>
+    body {
+        background-color: #f7f7f7;
+        font-family: sans-serif;
+        text-align: center;
+    }
 
+    h1 {
+        color: #333;
+        margin-top: 40px;
+    }
+
+    p {
+        display: inline-block;
+        margin-top: 40px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+    }
+
+    p  {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        box-sizing: border-box;
+    }
+
+    p {
+        background-color: #0400ff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    p {
+        background-color: #0400ff;
+    }
+</style>
 <body>
     <h1>Your Weather Report for {{ weather_data.city }},{{ weather_data.country_code }}</h1>
-    <p>Description: {{ weather_data.description }}</p>
     <p>Temperature: {{ (weather_data.temp - 273.15) | round(2) }} &#8451;</p>
+    <p>Description: {{ weather_data.description }}</p>
     <p>Pressure: {{ weather_data.pressure }}</p>
     <p>Humidity: {{ weather_data.humidity }}</p>
     <p>Minimum Temperature: {{ weather_data.temp_min }}</p>
     <p>Maximum Temperature: {{ weather_data.temp_max }}</p>
     <p>Wind Speed: {{ weather_data.wind_speed }}</p>
-    <p>Wind Degree: {{ weather_data.wind_deg }}</p>
 </body>
 
 </html>

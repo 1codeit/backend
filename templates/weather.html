@@ -67,7 +67,7 @@
     }
 </style>
     <h1>Your Weather Report for {{ weather_data.city }},{{ weather_data.country_code }}</h1>
-    <h2>Note evan is your local is in the us it will still be in celsius as thats whats normal</h2>
+    <h2>Note evan is your local is in the us it will still be in celsius as this app is built by a kiwi and im not insane</h2>
     <p>Temperature: {{ (weather_data.temp - 273.15) | round(2) }} &#8451;</p>
     <p>Description: {{ weather_data.description }}</p>
     <p>Pressure: {{ weather_data.pressure }}</p>

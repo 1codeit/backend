@@ -45,7 +45,6 @@ def get_weather_data(api_key, city, country_code):
         "temp_min": main["temp_min"],
         "temp_max": main["temp_max"],
         "wind_speed": wind["speed"],
-        "wind_deg": wind["deg"]
     }
 
 

@@ -70,10 +70,10 @@
     <h2>Note evan is your local is in the us it will still be in celsius as this app is built by a kiwi and im not insane</h2>
     <p>Temperature: {{ (weather_data.temp - 273.15) | round(2) }} &#8451;</p>
     <p>Description: {{ weather_data.description }}</p>
-    <p>Pressure: {{ weather_data.pressure }}</p>
-    <p>Humidity: {{ weather_data.humidity }}</p>
-    <p>Minimum Temperature: {{ weather_data.temp_min }}</p>
-    <p>Maximum Temperature: {{ weather_data.temp_max }}</p>
+    <p>Pressure: {{ weather_data.pressure }} hPa</p>
+    <p>Humidity: {{ weather_data.humidity }}%</p>
+    <p>Minimum Temperature: {{ (weather_data.temp_min - 273.15) | round(2) }} &#8451;</p>
+    <p>Maximum Temperature: {{ (weather_data.temp_max - 273.15) | round(2) }} &#8451;</p>
     <p>Wind Speed: {{ weather_data.wind_speed }}</p>
 </body>
 

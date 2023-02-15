@@ -54,11 +54,30 @@ def home():
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
+    if request.form["country_code"] == "nz":
+        ccvalue = "New Zealand"
+    elif request.form["country_code"] == "au":
+        ccvalue = "Australia"
+    elif request.form["country_code"] == "us":
+        ccvalue = "United States"
+    elif request.form["country_code"] == "uk":
+        ccvalue = "United Kingdom"
+    elif request.form["country_code"] == "ca":
+        ccvalue = "Canada"
+    elif request.form["country_code"] == "jp":
+        ccvalue = "Japan"
+    elif request.form["country_code"] == "cn":
+        ccvalue = "China"
+    elif request.form["country_code"] == "fr":
+        ccvalue = "France"
+    elif request.form["country_code"] == "*":
+        ccvalue = "n/a"
+
     # This below line is a temporary fix for the API key if it needs to be used
     # api_key = request.form["key"]
     api_key = retrieved_secret.value
     city = request.form["city"]
-    country_code = request.form["country_code"]
+    country_code = ccvalue
 
     weather_data = get_weather_data(api_key, city, country_code)
 

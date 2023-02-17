@@ -17,15 +17,13 @@ app = Flask(__name__)
 
 def get_weather_data(api_key, city, country_code):
     # Set up the API request URL
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&appid={api_key}"
+    url = f"http://api.openweathermap.org/data/3/weather?q={city},{country_code}&appid={api_key}"
 
     # Send the API request and get the response
     response = requests.get(url)
 
     # Check if the request was successful
     if response.status_code != 200:
-        raise Exception(f"Failed to get weather data: {response.text}")
-    elif response.status_code == 404:
         raise Exception(f"Failed to get weather data: {response.text}")
     # Parse the response JSON
     data = response.json()
@@ -57,6 +55,10 @@ def home():
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
     if request.form["country_code"] == "nz":
+        ccvalue = "New Zealand"
+    elif request.form["country_code"] == "NZ":
+        ccvalue = "New Zealand"
+    elif request.form["country_code"] == "New Zealand":
         ccvalue = "New Zealand"
     elif request.form["country_code"] == "au":
         ccvalue = "Australia"

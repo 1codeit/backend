@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<head>
+    <title>HuskyNZ's Weather App</title>
+     <!--Pulles in favicon and fonts from the alternitive current branch-->
+     <link rel="apple-touch-icon" sizes="180x180"
+         href="https://serv.huskynz.online/logo/favicon_io/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32"
+         href="https://serv.huskynz.online/logo/favicon_io/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16"
+         href="https://serv.huskynz.online/logo/favicon_io/favicon-16x16.png">
+</head>
+<style>
+    body {
+        background-color: #f7f7f7;
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        margin-top: 40px;
+    }
+
+    form {
+        display: inline-block;
+        margin-top: 40px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+    }
+
+    input[type="text"] {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #0400ff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0400ff;
+    }
+</style>
+<body>
+    <h1>Get Weather for your location! Fast</h1>
+    <h2>Kindly note that currently, this application exclusively supports New Zealand and is limited to the following
+        cities: Rolleston, Christchurch, Auckland, Wellington, Hamilton, Tauranga, Dunedin, Nelson, New Plymouth,
+        Palmerston North, Napier, and Whangarei.
+    </h2>
+<!--
+This is for the backup way of geting the key and telling the user that there key needs to be activated
+    <p>Note if you just got your key it may take a couple hours to become active</p>
+
+-->
+    <form action="/get_weather" method="post">
+        <!--This is for the backup way of geting the key-->
+        <!-- <label for="key">Your Openwether api key:</label>
+        <input type="text" id="key" name="key">
+        <br> -->
+
+        <label for="cityc">City:</label>
+        <select id="cityc" name="cityc">
+        <option value="Rolleston">Rolleston</option>
+        <option value="Auckland">Auckland</option>
+    </select>
+        <br>
+<label for="country_code">Country:</label>
+<select id="country_code" name="country_code">
+    <option value="nz">New Zealand</option>
+    <option value="au">Australia</option>
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+    <option value="ca">Canada</option>
+    <option value="jp">Japan</option>
+    <option value="cn">China</option>
+    <option value="fr">France</option>
+</select>
+
+
+
+        <br>
+        <input type="submit" value="Get Weather">
+      </form>
+      </body>
+
+      </html>

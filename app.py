@@ -38,8 +38,8 @@ def get_weather_data(api_key, city, country_code):
     return {
         "description": weather["description"],
 
-       # "city": request.form.get["cityc"],
-       # "country_code": request.form.get["country_code"],
+        #"city": get_weather.city,
+        #"country_code": get_weather.country_code,
         "icon": weather["icon"],
         "temp": main["temp"],
         "pressure": main["pressure"],
@@ -48,7 +48,14 @@ def get_weather_data(api_key, city, country_code):
         "temp_max": main["temp_max"],
         "wind_speed": wind["speed"],
     }
+def get_city_country_text(city, country_code):
+    if request.form["cityc"] == Rolleston:
+        city = Rolleston
+    elif request.form["cityc"] == Auckland:
+        city = Auckland
 
+
+    country_code = request.form.get('country_code')
 
 @app.route("/")
 def home():
@@ -56,7 +63,6 @@ def home():
 
 @app.route("/get_weather", methods=["POST"])
 def get_weather():
-
 
     # This below line is a temporary fix for the API key if it needs to be used
     # api_key = request.form["key"]
@@ -66,7 +72,7 @@ def get_weather():
 
     weather_data = get_weather_data(api_key, city, country_code)
 
-    return render_template("weather.html", weather_data=weather_data)
+    return render_template("weather.html", weather_data=weather_data , get_city_country_text=get_city_country_text)
 
 @app.route("/404")
 def page_not_found():

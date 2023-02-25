@@ -53,6 +53,10 @@ def get_city_country_text(city, country_code):
         city = Rolleston
     elif request.form["cityc"] == Auckland:
         city = Auckland
+    elif request.form["cityc"] == Christchurch:
+        city = Christchurch
+    elif request.form["cityc"] == Wellington:
+        city = Wellington
 
 
     country_code = request.form.get('country_code')

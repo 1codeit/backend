@@ -19,11 +19,11 @@ Not at this time
 
 
 ## Feedback
-There will be a way to do feedback soon
+To provide feedback plase fill [This form](https://forms.husky.nz/t/qaRREBpd7xus?sentfrom=gen6githubrepo&internal=false&sentto=n/a&endbuttonurl=https://w.hnz.li&endbuttonurltxt=HuskyNZ Wether) out
 
 ## Demo
 
-Will be avaible soon
+Check it out at https://w.hnz.li/
 
 
 ## Support

@@ -66,8 +66,8 @@
         background-color: #0400ff;
     }
 </style>
-    <h1>Your Weather Report for  </h1>
-    <h2>^ is broken plase rember your city for the moment</h2>
+    <h1>Your Weather Report for {{ weather_data.city }} , {{ weather_data.country_code }} </h1>
+    <h2>It’s Celsius! Not American! </h2>
     <p>Temperature: {{ (weather_data.temp - 273.15) | round(2) }} &#8451;</p>
     <p>Description: {{ weather_data.description }}</p>
     <p>Pressure: {{ weather_data.pressure }} hPa</p>
@@ -75,6 +75,11 @@
     <p>Minimum Temperature: {{ (weather_data.temp_min - 273.15) | round(2) }} &#8451;</p>
     <p>Maximum Temperature: {{ (weather_data.temp_max - 273.15) | round(2) }} &#8451;</p>
     <p>Wind Speed: {{ weather_data.wind_speed }}</p>
-</body>
+    <footer b-3tnlbj4u0l class="border-top footer text-muted">
 
+        <div b-3tnlbj4u0l class="container">
+          HuskyNZ Provides NO SLA at this time. | &copy; 2022 -<script>document.write(new Date().getFullYear())</script> | HuskyNZ | <a href="/Pages/Privacy">Privacy</a> | <a href="/Pages/toc/">TERMS OF USE</a> | <a href="https://hnz.li/lui">HuskyNZ URLS</a>
+        </div>
+      </footer>
+</body>
 </html>

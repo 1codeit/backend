@@ -33,13 +33,16 @@ def get_weather_data(api_key, city, country_code):
     weather = data["weather"][0]
     main = data["main"]
     wind = data["wind"]
-
+    
+    #Set city?
+    cctiy = request.form.get('cityc')
+    
     # Return the weather data as a dictionary
     return {
         "description": weather["description"],
 
-        #"city": get_weather.city,
-        #"country_code": get_weather.country_code,
+        "city": request.form.get('cityc'),
+        "country_code": request.form.get('country_code'),    
         "icon": weather["icon"],
         "temp": main["temp"],
         "pressure": main["pressure"],
@@ -48,18 +51,6 @@ def get_weather_data(api_key, city, country_code):
         "temp_max": main["temp_max"],
         "wind_speed": wind["speed"],
     }
-def get_city_country_text(city, country_code):
-    if request.form["cityc"] == Rolleston:
-        city = Rolleston
-    elif request.form["cityc"] == Auckland:
-        city = Auckland
-    elif request.form["cityc"] == Christchurch:
-        city = Christchurch
-    elif request.form["cityc"] == Wellington:
-        city = Wellington
-
-
-    country_code = request.form.get('country_code')
 
 @app.route("/")
 def home():
@@ -71,17 +62,22 @@ def get_weather():
     # This below line is a temporary fix for the API key if it needs to be used
     # api_key = request.form["key"]
     api_key = retrieved_secret.value
-    city = request.form["cityc"]
+    city =  request.form.get('cityc')
     country_code = request.form.get('country_code')
 
     weather_data = get_weather_data(api_key, city, country_code)
 
-    return render_template("weather.html", weather_data=weather_data , get_city_country_text=get_city_country_text)
+    return render_template("weather.html", weather_data=weather_data)
 
 @app.route("/404")
 def page_not_found():
     return render_template("404.html")
-
+@app.route("/Pages/toc/")
+def Pages_Toc():
+    return render_template("toc.html")
+@app.route("/Pages/Privacy/")
+def Privacy_pol():
+    return render_template("Privacy-Policy.html")
 if __name__ == "__main__":
     app.run()
 #end of Flask Code

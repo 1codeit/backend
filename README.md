@@ -19,7 +19,7 @@ Not at this time
 
 
 ## Feedback
-To provide feedback plase fill [This form](https://forms.husky.nz/t/qaRREBpd7xus?sentfrom=1codeitwetherrepo&internal=false&sentto=repo&endbuttonurl=https://w.hnz.li&endbuttonurltxt=HuskyNZ Wether) out
+To provide feedback plase fill [This form](https://forms.husky.nz/t/qaRREBpd7xus?sentfrom=1codeitwetherrepo&internal=false&sentto=repo&endbuttonurl=https://w.hnz.li&endbuttonurltxt=HuskyNZ-Wether) out
 
 ## Demo
 

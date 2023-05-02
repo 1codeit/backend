@@ -1,14 +1,14 @@
 
 # HuskyNZ's wether app
 
-This is a very very very basic python app that gets wether data from openwether
+This is a very very very basic python app that gets wether data from openwether and stores keys in Azure Key Vault
 
 
 
 
 ## Documentation
 
-[The wiki tab](https://github.com/1codeit/wether/wiki)
+[The docs can be found here ](https://docs.w.hnz.li)
 
 
 

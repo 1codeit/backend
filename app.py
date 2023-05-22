@@ -1,3 +1,4 @@
+#import the librays
 from flask import Flask, request, render_template
 import requests
 from azure.keyvault.secrets import SecretClient
@@ -33,10 +34,7 @@ def get_weather_data(api_key, city, country_code):
     weather = data["weather"][0]
     main = data["main"]
     wind = data["wind"]
-    
-    #Set city?
-    cctiy = request.form.get('cityc')
-    
+
     # Return the weather data as a dictionary
     return {
         "description": weather["description"],

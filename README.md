@@ -1,3 +1,10 @@
+##
+# THIS IS NOW NOT BEAING WORKED ON FLASK IS NOT THE BEST
+
+# I WILL TRY TO REMAKE IT BASED ON THIS CODE
+
+
+# Archive
 
 # HuskyNZ's wether app
 

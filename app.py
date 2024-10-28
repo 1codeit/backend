@@ -1,17 +1,9 @@
 #import the librays
 from flask import Flask, request, render_template
 import requests
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
 
-#Start of Azure Key Vault Code
-keyVaultName = "kv-wethrer"
-KVUri = f"https://kv-wethrer.vault.azure.net"
-
-credential = DefaultAzureCredential()
-client = SecretClient(vault_url=KVUri, credential=credential)
-secretName = "okey"
-retrieved_secret = client.get_secret(secretName)
+retrieved_secret = os.environ.get("OKEY")
+ 
 #end of Azure Key Vault Code
 
 # Start of Flask Code

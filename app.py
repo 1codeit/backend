@@ -1,9 +1,11 @@
 #import the librays
 from flask import Flask, request, render_template
 import requests
+import os
+from dotenv import load_dotenv
 
-retrieved_secret = os.environ.get("OKEY")
- 
+load_dotenv()
+
 #end of Azure Key Vault Code
 
 # Start of Flask Code
@@ -51,7 +53,7 @@ def get_weather():
 
     # This below line is a temporary fix for the API key if it needs to be used
     # api_key = request.form["key"]
-    api_key = retrieved_secret.value
+    api_key=os.environ.get("OKEY") #("")
     city =  request.form.get('cityc')
     country_code = request.form.get('country_code')
 
